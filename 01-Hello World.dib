@@ -1,0 +1,24 @@
+#!markdown
+
+# Hello World
+
+## What do you do with this notebook?
+
+This notebook is intended to help you learn the coding language PowerShell. You can:
+
+- Work through these notebooks on your own.
+- Use these notebooks as prompts to write your own code in Visual Studio.
+
+## What is PowerShell?
+
+PowerShell is a cross-platform task automation solution made up of a command-line shell, a scripting language, and a configuration management framework. PowerShell runs on Windows, Linux, and macOS.
+> [Read more](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+
+## PowerShell: Hello World
+
+Write your first PowerShell program! It outputs a string "Hello World" to the console.
+> Hover your mouse over the following code. On the left side, a little "play" icon should show up. Click that and the code will run!
+
+#!pwsh
+
+"Hello World"
