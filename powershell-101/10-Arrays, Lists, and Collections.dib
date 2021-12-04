@@ -1,0 +1,138 @@
+#!markdown
+
+# Arrays, Lists, and Collections
+
+#!markdown
+
+Arrays, lists, and collections can be pretty useful. Try looking at a list:
+> Run the following code. Does it print out what you expected?
+
+#!pwsh
+
+$names = "<name>", "Ana", "Felipe" 
+
+foreach ($name in $names) {
+    "Hello $($name.ToUpper())!"
+}
+
+#!markdown
+
+## So what does that code mean?
+
+- In the `$names` variable you're making a list of strings.
+- **foreach**: This is another for loop! It goes through every item in a list.
+- **name in names**: This is a style that a lot of people prefer. `$names` is the whole list that contains plural names. `$name` is an individual item in `$names`.
+
+#!markdown
+
+## Alternative method
+
+The previous code is a bit more clear to read for human than the code below, but the code below has some more recognizable code, based off of what we've learned.
+These are really just two different styles of writing the same code. Feel free to use whatever makes the most sense to you!
+> Run the following code.
+>
+> Can you identify similar parts of code between the two different methods?
+>
+> Which method do you prefer?
+
+#!pwsh
+
+$names = "<name>", "Ana", "Felipe" 
+
+for($i = 0; $i -lt $names.Count; $i++) {
+    $name = $names[$i]
+    "Hello $($name.ToUpper())!"
+}
+
+#!markdown
+
+## Add
+
+You can add names to lists pretty easily. Lists have the method `Add()`, which tacks on a new item to the end of the list.
+> Run the code.
+>
+> Then try adding your own name instead.
+
+#!pwsh
+
+[System.Collections.ArrayList]$names = "<name>", "Ana", "Felipe" 
+
+$null = $names.Add('Sophia')
+
+foreach ($name in $names) {
+    "Hello $($name.ToUpper())!"
+}
+
+#!markdown
+
+## Remove
+
+You can also remove names. Try that out:
+
+> Run the code.
+>
+> Then choose which name you want removed.
+>
+> What happens when you try to remove something that isn't there?
+
+#!pwsh
+
+[System.Collections.ArrayList]$names = "<name>", "Ana", "Felipe" 
+
+$null = $names.Remove("<name>")
+
+for($i = 0; $i -lt $names.Count; $i++) {
+    $name = $names[$i]
+    "Hello $($name.ToUpper())!"
+}
+
+#!markdown
+
+## Printing a specific item
+
+What if you don't want to print out all of your friends? What if you just want to print out one friend? That's where brackets come in.
+> Run the code.
+>
+> Try printing a different spot in the list.
+>
+> Do you need a 0 or 1 to print the first item in a list?
+
+#!pwsh
+
+$names = "<name>", "Sophia", "Felipe"
+
+$names[1]
+
+#!markdown
+
+Don't forget that lists are "0" based. The first spot is the "0th" spot.
+
+#!markdown
+
+# Playground
+
+Play around with what you've learned! Here's some starting ideas:
+> Make a list of groceries you need called `groceries`.
+>
+> Can you print out "buy \<grocery\>!" for every item?
+>
+> What's the 3rd item of the list? Is that the same as `groceries[3]?`
+>
+> Make sure to add "toothpaste".
+>
+> Remove your least favorite item.
+>
+> Now what's third on the list?
+
+#!pwsh
+
+"Playground"
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)
