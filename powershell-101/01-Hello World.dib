@@ -22,3 +22,65 @@ Write your first PowerShell program! It outputs a string "Hello World" to the co
 #!pwsh
 
 "Hello World"
+
+#!markdown
+
+Simply typing a string will print a message to the test console.
+
+`Console.WriteLine` is a method that is used to print a message to a text console. In this case, you specified "Hello World" as the output.
+
+# Declare and use variables
+
+A **variable** is a symbol you can use to run the same code with different values. For example, you can declare a new variable named `aFriend` that you can use to output a string. You can declare this variable by using the `$` in front of the name of the varaible, and PowerShell will automatically figure out the type for you.
+
+> Go ahead and run the following code to see the output of **Jayme**.
+>
+> Next, change the name in the variable and run it again to see something different.
+
+#!pwsh
+
+$aFriend = "Jayme"
+$aFriend
+
+#!markdown
+
+# Combining Strings
+
+You may have noticed that the word "Hello" was missing from the last code block. You can fix it by combining multiple string together using `+` to create a new string that it output to the console.
+
+> Run the code to write out a friendly welcome!
+
+#!pwsh
+
+"Hello " + $aFriend + "!"
+
+#!markdown
+
+You did it! You just created your first PowerShell script and learned about combining strings with string interpolation.
+
+#!markdown
+
+# Playground: Try it yourself
+
+Each module will have a little "playground" at the end. This is a space for you to try writing some code yourself, instead of looking at prewritten code.
+Try out printing words and variables! Here are some prompts to try:
+> Print out a personal motto.
+>
+> Make some variables with your favorite foods, and then write a little story involving them.
+>
+> **Challenge!**
+>
+> Make your own Mad Libs! Make a few variables that are verbs, nouns, etcetera, and then use them when you write a story. Have a friend decide the value of each variable and read it to them for a laugh!
+
+#!pwsh
+
+'Playground'
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)
