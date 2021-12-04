@@ -1,0 +1,35 @@
+#!markdown
+
+# Challenge: Combining Branches and Loops
+
+Here's a challenge:
+>
+> See if you can write PowerShell code to find the sum of all integers 1 through 20 that are divisible by 3.
+>
+First, try on your own in this notebook below, or in Visual Studio, or in Visual Studio Code.
+
+#!csharp
+
+"Challenge"
+
+#!markdown
+
+## Tips and tricks
+
+- The `%` operator gives you the remainder of a division operation.
+- The `if` statement gives you the condition to see if a number should be part of the sum.
+- The `for` loop can help you repeat a series of steps for all the numbers 1 through 20.
+- Getting a weird answer? try making some print statements of your variables, to see it they're changing unexpectedly.
+
+## Check your answer
+
+Your final answer should be 63.
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)

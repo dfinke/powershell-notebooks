@@ -1,0 +1,89 @@
+#!markdown
+
+# What Are Loops?
+
+Loops are a way to repeat an action multiple times. You can use `while` to do that.
+> Try out this first loop:
+
+#!pwsh
+
+$counter = 0
+
+while ($counter -lt 10) {
+  "Hello World! The counter is $counter"
+  $counter++
+}
+
+#!markdown
+
+## do
+
+You can also make a loop with `do`.
+> Try out the following code and see if there's anything different between this and the `while` loop.
+
+#!pwsh
+
+$counter = 0
+
+do {
+    "Hello World! The counter is $counter"
+    $counter++
+} while ($counter -lt 10)
+
+#!markdown
+
+Hmm, nothing much seems to different, right?
+
+> Try changing the conditional to `(counter -lt 0)` on both codes. What happens?
+
+In the `while` loop, nothing is printed out, but in the `do` loop, you get one print out. The `do` loop does the action first, then checks the conditional. In contrast, the `while` loop checks the conditional first, then does an action.
+
+#!markdown
+
+## for loop
+
+`for` is one the most common loops. It will repeat an action for a specific amount of turns. It can look a little intimidating.
+> Before you learn all the ins and outs of the code, run the following for loop just to see it working:
+
+#!pwsh
+
+for ($counter = 0; $counter -lt 10; $counter++) {
+    "Hello World! The counter is $counter"
+}
+
+#!markdown
+
+### What's in the parentheses?
+
+There are three parts in the `for` loop parentheses: `$counter = 0`, `$counter -lt 10`, and `$counter++`.
+You can think of them as the start point, the end point, and the step size.
+`$counter = 0` is just setting up the counter. You're starting at 0.
+`$counter -lt 10` is the conditional that gets checked at the start of every loop. Once the conditional is false (in this case, once counter is not less than 10), the loop is done and the code moves on.
+`$counter++` is increasing counter by one, taking one step closer to the end. The step is taken at the end of each loop.
+> Try messing with the `for` loop set up. How does it change the output?
+
+#!markdown
+
+# Playground
+
+Play around with what you've learned! Here's some starting ideas:
+> Make a loop that counts backwards from 10.
+>
+> Make a loop that counts forward by 2.
+>
+> Make a loop that counts from 7 to 22.
+>
+> Bonus: Make the above with all three loop types.
+
+#!pwsh
+
+"Playground"
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)

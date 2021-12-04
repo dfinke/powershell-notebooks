@@ -1,0 +1,106 @@
+#!markdown
+
+# Branches (if)
+
+## Basic If
+
+If statements makes decisions.
+
+> Try out our first if statement:
+
+#!pwsh
+
+$a = 5
+$b = 6
+if ($a + $b -gt 10){
+    "The answer is greater than 10."
+}
+
+#!markdown
+
+In words, this if statement is saying "if a plus b is greater than 10, write the line 'The answer is greater than 10'".
+> What would happen if a + b is less than 10? Try editing the previous code to see.
+
+Did nothing happen? That's great! Since the the **conditions** (a + b is greater than 10) of the if statement weren't met, the code didn't go into the if statement, and therefore had nothing to print.
+
+#!markdown
+
+## What's a condition?
+
+The `condition` is the statement in parentheses after the `if`. A `condition` is a boolean, which means it has to return a true or false. that means using symbols such as `-gt`, `-lt`, `-le`, `-ge` or `-eq`.
+> Practice boolean statements. Try out some different symbols and numbers to see the answer.
+
+#!pwsh
+
+$outcome = 3 -gt 5
+"This condition is " + $outcome
+
+#!markdown
+
+## Else
+
+Before, if the conditions of the `if` statement weren't met, the entire if statement was skipped. But what if you want something to happen in both cases? `else` is what happens if the conditional comes out false.
+
+> Run this code and change the conditional a couple times to see the different outcomes.
+
+#!pwsh
+
+$a = 5
+$b = 3
+if ($a + $b -gt  10) {
+    "The answer is greater than 10"
+}
+else {
+    "The answer is not greater than 10"
+}
+
+#!markdown
+
+## Multi-line If statements
+
+What if you want more complex code in your `if` statements? That's great, just add curly braces around what you want done.
+
+> Try it out! Run the following code.
+
+#!pwsh
+
+$c = 4
+if (($a + $b + $c -gt 10) -and ($a -eq $b)){
+    "The answer is greater than 10"
+    "And the first number is equal to the second"
+}
+else
+{
+    "The answer is not greater than 10"
+    "Or the first number is not equal to the second"
+}
+
+#!markdown
+
+`-and` means "and". It's a way to link up multiple conditionals. You can also use `-or`.
+
+  The `if` conditional above checks that adding a, b, and c up is greater than 10 AND that a equals b. If both are true, it goes into the `if` statement; otherwise, it goes into the `else` part.
+
+#!markdown
+
+# Playground
+
+Play around with what you've learned! Here's some starting ideas:
+> Try out the "or" symbol in place of the "and" in the previous code. What do you need to do to get true vs. false?
+>
+> What if you put if statements inside of if statements (a nested if statement)?
+>
+> Can you draw out the flow of an if statement? A nested if statement?
+
+#!pwsh
+
+"Playground"
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)
