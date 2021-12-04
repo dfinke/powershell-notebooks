@@ -1,0 +1,55 @@
+#!markdown
+
+# Numbers and Decimals
+
+## Working With Fixed Point types
+
+The `Decimal` type is similar to `double`s. They don't have as big a range, but they do have much higher precision.
+
+> What's the range of a decimal type?
+
+#!pwsh
+
+$min = [decimal]::MinValue
+$max = [decimal]::MaxValue
+
+"The range of the decimal type is $min to $max"
+
+#!markdown
+
+> How do doubles and decimals compare in precision?
+
+#!pwsh
+
+[double]$a = 1.0
+[double]$b = 3.0
+$a / $b
+
+[decimal]$c = 1.0
+[decimal]$d = 3.0
+$c / $d
+
+#!markdown
+
+You can see that a decimals have a higher precision than doubles.
+
+#!markdown
+
+# Playground
+
+Play around with what you've learned! Here's some starting ideas:
+
+> Can you find the area of a circle with a radius of 2.5 inches?
+>
+> What does the answer look like when you change number types, such as int, short, and decimal.
+>
+> Hint: You can write `[Math]::PI` as pi, instead of writing the answer out.
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)
