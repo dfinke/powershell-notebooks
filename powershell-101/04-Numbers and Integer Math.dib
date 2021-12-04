@@ -1,0 +1,17 @@
+#!markdown
+
+# Numbers and Integer Math
+
+#!markdown
+
+## Integer Math
+
+You have a few `integers` defined below. An `integer` is a positive or negative whole number.
+> Before you run the code, what should `c` be?
+
+#!pwsh
+
+$a = 18
+$b = 6
+$c = $a + $b
+$c
