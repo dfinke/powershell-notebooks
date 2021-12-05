@@ -1,0 +1,83 @@
+#!markdown
+
+# Lists of Other Types
+
+You've been practicing lists of strings, but you can make a list of anything! Here's a number example.
+
+## Fibonacci
+
+Fibonacci is a cool number sequence. It adds up the last two numbers up to make the next number. You start with 1 and 1
+
+1 + 1 = 2  (1, 1, 2)
+
+1 + 2 = 3  (1, 1, 2, 3)
+
+2 + 3 = 5  (1, 1, 2, 3, 5)
+
+3 + 5 = 8  (1, 1, 2, 3, 5, 8)
+
+and so on. There are lots of stuff in nature that follow this number sequence, and has lots of cool stuff if you want to look it up!
+
+> Start with the base numbers: Here's a list with just 1, 1 in it. Run it and see what happens.
+
+#!pwsh
+
+$fibonacciNumbers = 1, 1
+
+$fibonacciNumbers
+
+#!markdown
+
+Now, you don't want just 1,1 in it! You want more of the sequence. In this code, you're using the last two numbers of the list, adding them together to make the next number, then adding it to the list.
+
+> Run the code to try it out.
+
+#!pwsh
+
+[System.Collections.ArrayList]$fibonacciNumbers = 1, 1 # Starting the list off with the basics
+
+$previous = $fibonacciNumbers[$fibonacciNumbers.Count - 1] # Take the last number in the list
+$previous2 = $fibonacciNumbers[$fibonacciNumbers.Count - 2] # Take the second to last number in the list
+
+$null = $fibonacciNumbers.Add($previous + $previous2) # Add the previous numbers together, and attach the sum to the end of the list
+
+# Print out the list
+foreach ($item in $fibonacciNumbers) {
+    $item
+}
+
+#!markdown
+
+## Count -1
+
+Why do you need to do `$fibonacciNumbers.Count -1` to get the last number of the list? Well, `Count` tells you how many items are in a list. However, the index of an item starts at zero. So, if you only had one item in your list, the count would be one, but the index of the item would be 0. The index and count of the last item is always one off.
+
+#!markdown
+
+# Challenge: Fibonacci to 20th number
+
+We've given you a base of code that deals with Fibonacci. Can you make a list that has the first 20 fibonacci numbers?
+
+> Make and print a list that has the first 20 fibonacci numbers.
+
+#!pwsh
+
+"Challenge"
+
+#!markdown
+
+## Tips and tricks
+
+- The final number should be 6765.
+- Could you make a `for` loop? A `foreach` loop? A `while` loop? Which kind of loop do you prefer and which would be more useful?
+- Are you getting close, but are you one number off? That's a really common issue! Remember that `-gt` and `-ge` are similar, but they end up being one off from the other. Try playing around with that?
+- Remember that you're starting with two items in the list already.
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)
