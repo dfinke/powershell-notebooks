@@ -18,7 +18,7 @@ Download or clone this repo and open the powershell-101 folder in VS Code to get
 
 ## .NET Foundation
 
-.NET Interative Notebooks for C# is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
+.NET Interactive Notebooks for C# is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
 
 There are many .NET related projects on GitHub.
 
@@ -29,4 +29,4 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 
 ## License
 
-.NET (including the csharp-notebooks repo) is licensed under the [MIT](LICENSE) license.
+.NET (including the powershell-notebooks repo) is licensed under the [MIT](LICENSE) license.
