@@ -34,7 +34,7 @@ vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.g
 
 ## .NET Foundation
 
-.NET Interactive Notebooks for C# is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
+.NET Interactive Notebooks for PowerShell is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
 
 There are many .NET related projects on GitHub.
 
