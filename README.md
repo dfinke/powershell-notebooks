@@ -10,11 +10,17 @@ Welcome to the home of .NET interactive notebooks for PowerShell!
 ## PowerShell 101
 Download or clone this repo and open the powershell-101 folder in VS Code to get started with the PowerShell 101 notebooks.
 
-<!-- Or, if you want just tap on one of the Notebook links below and automatically have it open in VS Coded!
+Or, if you want just tap on one of the Notebook links below and automatically have it open in VS Coded!
 
 | # | Topic                         | Notebook Link         
 |---|-------------------------------|-----------------------
-|1  | Hello World                   | [01 Notebook](https://github.com/dfinke/powershell-notebooks/blob/master/powershell-101/01-Hello%20World.dib)  -->
+|1  | Hello World                   | [01 Notebook](vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib) 
+
+<!-- start vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib -->
+
+<!-- [Hello World](vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib) -->
+
+<!-- [Hello World](vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib) -->
 
 ## .NET Foundation
 
