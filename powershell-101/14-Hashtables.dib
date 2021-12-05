@@ -1,0 +1,107 @@
+#!markdown
+
+# Hashtables
+
+A hashtable is a flexible data type, that lets you map a set of keys to a set of values.
+
+For example, we may have a hashtable that maps "start" to 1, "stop" to 2, and "manual" to 3.
+
+#!markdown
+
+# Create a hashtable for a Person
+
+#!pwsh
+
+$person = @{
+    name = 'Jane'
+    age = '25'
+}
+
+$person
+
+#!markdown
+
+PowerShell allows you to access members in a hashtable either through property notation or array notation. 
+
+Here’s the property notation
+
+#!pwsh
+
+$person.name
+$person.age
+
+#!markdown
+
+Here's the array notation
+
+#!pwsh
+
+$person['name']
+$person['age']
+
+#!markdown
+
+One of these properties in a hashtable is the keys property. This property will give you a list of all of the keys in the hashtable
+
+#!pwsh
+
+$person.Keys
+
+#!markdown
+
+You can use the keys to get all the `values`
+
+#!pwsh
+
+$person[$person.keys]
+
+#!markdown
+
+Here is the simplest way to get all the values in a hashtable
+
+#!pwsh
+
+$person.Values
+
+#!markdown
+
+## Adding, and Changing elements
+
+First let’s add the date and the city where the person lives to the $person hashtable
+
+#!pwsh
+
+$person["date"] = Get-Date
+
+$person
+
+#!pwsh
+
+$person.city = 'Manhattan'
+
+$person
+
+#!markdown
+
+Oops, we got the city wrong, it should be `Brooklyn`. Here's how you can fix that
+
+#!pwsh
+
+$person.city = 'Brooklyn'
+
+$person
+
+#!markdown
+
+## Summary
+
+Hashtables are a flexible data type that lets you map a set of keys to a set of values. They are an excellent tool to keep in your toolkit.
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)

@@ -1,0 +1,131 @@
+#!markdown
+
+# Functions
+
+Functions are a basic building block of a Windows PowerShell script or module. I use functions for several reasons:
+
+| What | Why |
+| ---- | --- |
+| Reusability | Reuse the code you have written. Write once, and reuse the code many times.
+| Readability | Good organization promotes readability, and that simplifies troubleshooting.
+| Flexibility | By abstracting tasks into functions, you add flexibility to the script and makes it easier to use for other purposes.
+| Simplicity | A well-crafted function will simplify the flow of a script, and make it easier to write.
+
+## Add Two Numbers
+
+Here, we create a function that adds two numbers. The function is named `AddTwoNumbers`, and it takes two parameters, `$a` and `$b`.
+
+#!pwsh
+
+function Add-TwoNumbers {
+    param (
+        $a,
+        $b
+    )
+
+    $a + $b
+}
+
+#!markdown
+
+Now let's call the function and pass in two numbers.
+
+#!pwsh
+
+Add-TwoNumbers 1 2
+
+#!markdown
+
+## More Functions 
+
+Functions can be as simple as the following. They don't have to take any parameters, and can return one piece of information.
+
+#!pwsh
+
+function Get-PowerShellProcess { Get-Process pwsh }
+
+Get-PowerShellProcess
+
+#!markdown
+
+# Passing arguments using $args
+
+There's a default argument array that contains all of the values passed to the function. This default array is available in the variable `$args`.
+
+
+Using `$args` enables simple but powerful scenarios.
+
+Here are two functions that use `$args`.
+
+#!pwsh
+
+function ql { $args }
+function qs { "$args" }
+
+#!markdown
+
+`ql` which stands for *quote list*
+
+#!pwsh
+
+$r = ql today tomorrow yesterday
+$r
+
+#!markdown
+
+Here's how you create the same list without `ql`. More typying, and more chances for errors when adding quotes and commas.
+
+#!pwsh
+
+$r = 'today', 'tomorrow', 'yesterday'
+$r
+
+#!markdown
+
+`qs` does pretty much the same thing, but uses string concatenation to return its arguments as a single string instead of an array
+
+#!pwsh
+
+$s = qs a   man   a plan  a canal      panama
+$s
+
+#!markdown
+
+## Default Values
+
+PowerShell lets you provide the values of function parameters
+
+#!pwsh
+
+function Hello {
+    param(
+        $p = "World"
+    )
+
+    "Hello $p"
+}
+
+#!pwsh
+
+Hello
+
+#!pwsh
+
+Hello Jane
+
+#!markdown
+
+## Summary
+
+- Functions are created using the `function` keyword
+- The simplest form of function uses keyword `$args`
+- You can control parameter handling for functions using of parameter declarations `param`
+
+#!markdown
+
+# Other resources
+
+Here's some more places to explore:
+> [Microsoft Learn](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2)
+>
+> [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/?view=powershell-7)
