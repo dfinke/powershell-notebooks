@@ -19,7 +19,7 @@ Or, if you want just tap on one of the Notebook links below and automatically ha
 <a href='http://www.google.com'>google</a> -->
 
 
-<a href='vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib'>notebook</a>
+<!-- <a href='vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib'>notebook</a> -->
 
 <!-- start vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib -->
 
