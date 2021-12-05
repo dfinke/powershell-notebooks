@@ -27,6 +27,10 @@ vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.g
 |  8 | What Are Loops                  | [08 Notebook](https://tinyurl.com/08-WhatAreLoops-a)
 |  9 | Combining Branches and Loops    | [09 Notebook](https://tinyurl.com/09-CombiningBranchesandLoops)
 | 10 | Arrays, Lists, and Collections  | [10 Notebook](https://tinyurl.com/10-ArraysListsandCollections)
+| 11 | Search, Sort, and IndexLists    | [11 Notebook](https://tinyurl.com/11-SearchSortandIndexLists)
+| 12 | Lists of Other Types            | [12 Notebook](https://tinyurl.com/12-ListsofOtherTypes)
+| 13 | Functions                       | [13 Notebook](https://tinyurl.com/13-Functions)
+| 14 | Hash Tables                     | [14 Notebook](https://tinyurl.com/14-Hashtables)
 
 ## .NET Foundation
 
