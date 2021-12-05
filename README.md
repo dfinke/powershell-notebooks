@@ -15,3 +15,18 @@ Download or clone this repo and open the powershell-101 folder in VS Code to get
 | # | Topic                         | Notebook Link         
 |---|-------------------------------|-----------------------
 |1  | Hello World                   | [01 Notebook](https://github.com/dfinke/powershell-notebooks/blob/master/powershell-101/01-Hello%20World.dib)  -->
+
+## .NET Foundation
+
+.NET Interative Notebooks for C# is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
+
+There are many .NET related projects on GitHub.
+
+- [.NET home repo](https://github.com/Microsoft/dotnet) - links to 100s of .NET projects, from Microsoft and the community.
+- [ASP.NET Core home](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-3.1) - the best place to start learning about ASP.NET Core.
+
+This project has adopted the code of conduct defined by the [Contributor Covenant](http://contributor-covenant.org/) to clarify expected behavior in our community. For more information, see the [.NET Foundation Code of Conduct](http://www.dotnetfoundation.org/code-of-conduct).
+
+## License
+
+.NET (including the csharp-notebooks repo) is licensed under the [MIT](LICENSE) license.
