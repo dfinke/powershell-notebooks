@@ -12,6 +12,9 @@ Download or clone this repo and open the powershell-101 folder in VS Code to get
 
 Or, if you want just tap on one of the Notebook links below and automatically have it open in VS Coded!
 
+<!-- Needs to be run thru tinyurl
+vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib -->
+
 | # | Topic                         | Notebook Link         
 |---|-------------------------------|-----------------------
 |1  | Hello World                   | [01 Notebook](https://tinyurl.com/01-HelloWorld)
