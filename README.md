@@ -18,7 +18,7 @@ vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.g
 | # | Topic                         | Notebook Link         
 |---|-------------------------------|-----------------------
 |1  | Hello World                   | [01 Notebook](https://tinyurl.com/01-HelloWorld)
-|2  | The Basics of Strings         | [02 Notebook](https://tinyurl.com/02-The Basics of Strings)
+|2  | The Basics of Strings         | [02 Notebook](https://tinyurl.com/02-TheBasicsofStrings)
 
 
 
