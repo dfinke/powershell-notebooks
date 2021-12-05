@@ -15,12 +15,18 @@ Or, if you want just tap on one of the Notebook links below and automatically ha
 <!-- Needs to be run thru tinyurl
 vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.githubusercontent.com/dfinke/powershell-notebooks/master/powershell-101/01-Hello%20World.dib -->
 
-| # | Topic                         | Notebook Link         
-|---|-------------------------------|-----------------------
-|1  | Hello World                   | [01 Notebook](https://tinyurl.com/01-HelloWorld)
-|2  | The Basics of Strings         | [02 Notebook](https://tinyurl.com/02-TheBasicsofStrings)
-
-
+| #  | Topic                           | Notebook Link         
+|----|---------------------------------|-----------------------
+|  1 | Hello World                     | [01 Notebook](https://tinyurl.com/01-HelloWorld)
+|  2 | The Basics of Strings           | [02 Notebook](https://tinyurl.com/02-TheBasicsofStrings)
+|  3 | Searching Strings               | [03 Notebook](https://tinyurl.com/03-SearchingStrings)
+|  4 | Numbers and Integer Math        | [04 Notebook](https://tinyurl.com/04-NumbersandIntegerMath)
+|  5 | Numbers and Integer Precision   | [05 Notebook](https://tinyurl.com/05-NumbersandIntegerPrecision)
+|  6 | Numbers and Decimals            | [06 Notebook](https://tinyurl.com/06-NumbersandDecimals)
+|  7 | Branches (if)                   | [07 Notebook](https://tinyurl.com/07-Branches)
+|  8 | What Are Loops                  | [08 Notebook](https://tinyurl.com/08-WhatAreLoops-a)
+|  9 | Combining Branches and Loops    | [09 Notebook](https://tinyurl.com/09-CombiningBranchesandLoops)
+| 10 | Arrays, Lists, and Collections  | [10 Notebook](https://tinyurl.com/10-ArraysListsandCollections)
 
 ## .NET Foundation
 
