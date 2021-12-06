@@ -2,6 +2,8 @@
 
 Welcome to the home of .NET interactive notebooks for PowerShell!
 
+***This is a derivative of the [.NET Interactive Notebooks for C#](https://github.com/dotnet/csharp-notebooks)***
+
 ## How to Install
 
 1. Install the [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
