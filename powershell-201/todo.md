@@ -29,3 +29,8 @@ List of PowerShell 201 topics
 ## PowerShell 401
 
 - Tiny PS Projects and the other one
+
+## Other Thoughts
+
+- [ ] XML
+- [ ] JSON and dot notation
