@@ -4,5 +4,5 @@ param(
 )
 
 Process {
-    (.\readDIBAsBlocks.ps1 $FullName | Where-Object type -eq 'pwsh').Content | Invoke-Expression
+    (. "$PSScriptRoot\readDIBAsBlocks.ps1" $FullName | Where-Object type -eq 'pwsh').Content | Invoke-Expression
 }

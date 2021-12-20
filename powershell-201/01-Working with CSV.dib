@@ -2,6 +2,25 @@
 
 # Working with CSV
 
-#!pwsh
-1
+## Convert `from` CSV
 
+#!pwsh
+
+$data = ConvertFrom-Csv @"
+OrderId,Category,Sales,Quantity,Discount
+1,Cosmetics,744.01,07,0.7
+2,Grocery,349.13,25,0.3
+3,Apparels,535.11,88,0.2
+"@
+
+#!pwsh
+
+$data | Format-Table 
+
+#!markdown
+
+## Convert `to` CSV
+
+#!pwsh
+
+$data | ConvertTo-Csv
