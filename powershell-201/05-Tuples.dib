@@ -67,3 +67,37 @@ $a.Item1
 #!pwsh
 
 $a.Item1.id
+
+#!markdown
+
+## Access via Index
+
+#!pwsh
+
+$data = [System.Tuple]::create((echo a e i o u),(1,2,3,4),(Get-ChildItem))
+
+#!pwsh
+
+$data
+
+#!pwsh
+
+$data[2]
+
+#!pwsh
+
+. ./ConvertTo-Tuple.ps1
+
+#!markdown
+
+Let’s create a tuple with ConvertTo-Tuple
+
+#!pwsh
+
+ConvertTo-Tuple 1.1
+ConvertTo-Tuple 1.1, 2.1
+ConvertTo-Tuple 'geeksforgeeks'
+ConvertTo-Tuple 'abc'
+ConvertTo-Tuple 11, 12, 13
+ConvertTo-Tuple (1..10)
+ConvertTo-Tuple @{a = 1 }
