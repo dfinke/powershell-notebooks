@@ -1,0 +1,67 @@
+#!markdown
+
+# TBD
+
+#!pwsh
+
+function Find-DuplicateLines{
+    param(
+        [parameter(ValueFromPipeline)]
+        $targetInput
+    )
+
+    begin {
+        $counts = @{}
+    }
+
+    process {     
+        $counts["$targetInput"]++
+    }
+
+    end {
+        foreach ($entry in $counts.GetEnumerator()) {
+            
+            if ($entry.Value -gt 1) {
+                [PSCustomObject]@{
+                    Count = $entry.Value
+                    Dupe  = $entry.Key
+                }
+            }
+        }
+    }
+}
+
+#!pwsh
+
+Get-Content .\duplicateLines.txt
+
+#!pwsh
+
+Get-Content .\duplicateLines.txt | Find-DuplicateLines
+
+#!pwsh
+
+function Find-DuplicateLines2 {
+    param(        
+        $targetFile
+    )
+
+
+    $counts = @{}
+    foreach ($line in (Get-Content $targetFile)) {
+        $counts["$line"]++
+    }
+    
+    foreach ($entry in $counts.GetEnumerator()) {
+        if ($entry.Value -gt 1) {
+            [PSCustomObject]@{
+                Count = $entry.Value
+                Dupe  = $entry.Key
+            }
+        }
+    }    
+}
+
+#!pwsh
+
+Find-DuplicateLines2 .\duplicateLines.txt
