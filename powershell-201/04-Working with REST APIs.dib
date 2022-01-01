@@ -9,7 +9,6 @@ Many web services provide a JSON interface — make a request with HTTP and back
 
 $q = 'repo:powershell/powershell is:open json rest method'
 
-$IssuesURL = "https://api.github.com/search/issues"
-$target = $IssuesURL + "?q=" + $q
+$IssuesURL = "https://api.github.com/search/issues?q=" + $q
 
-(Invoke-RestMethod $target).items | Select-Object number, state, @{n = 'login'; e = { $_.user.login } }, title 
+(Invoke-RestMethod $IssuesURL).items | Select-Object number, state, @{name = 'login'; expression = { $_.user.login } }, title 
