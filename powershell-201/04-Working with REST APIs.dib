@@ -3,8 +3,13 @@
 ----
 # Working with REST APIs
 
-Consuming Web APIs Using PowerShell
+Many web services provide a JSON interface — make a request with HTTP and back comes the desired information in JSON format. To illustrate, let’s query the GitHub issue tracker using its web-service interface.
 
 #!pwsh
 
-1
+$q = 'repo:powershell/powershell is:open json rest method'
+
+$IssuesURL = "https://api.github.com/search/issues"
+$target = $IssuesURL + "?q=" + $q
+
+(Invoke-RestMethod $target).items | Select-Object number, state, @{n = 'login'; e = { $_.user.login } }, title 
