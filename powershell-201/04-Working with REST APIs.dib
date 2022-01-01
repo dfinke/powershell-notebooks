@@ -7,8 +7,30 @@ Many web services provide a JSON interface — make a request with HTTP and back
 
 #!pwsh
 
-$q = 'repo:powershell/powershell is:open json rest method'
+function Get-GitHubIssue {
+    param($q)
+    
+    $IssuesURL = "https://api.github.com/search/issues?q=" + $q
+    (Invoke-RestMethod $IssuesURL).items | Select-Object number, state, @{name = 'login'; expression = { $_.user.login } }, title
+}
 
-$IssuesURL = "https://api.github.com/search/issues?q=" + $q
+#!pwsh
 
-(Invoke-RestMethod $IssuesURL).items | Select-Object number, state, @{name = 'login'; expression = { $_.user.login } }, title 
+Get-GitHubIssue 'repo:powershell/powershell is:open json rest method'
+
+#!pwsh
+
+Get-GitHubIssue 'repo:powershell/powershell is:open json rest method' | ConvertTo-Csv
+
+#!markdown
+
+## Challenge
+
+The GitHub web-service interface at https://developer.github.com/v3/ has many more features, check it out.
+
+Additional ideas:
+
+- Modify issues to report the results in age categories, say less than a month old, less than a year old, and more than a year old.
+- Build a tool that lets users create, read, update, and close GitHub issues from the command line, invoking their preferred text editor when substantial text input is required.
+- The popular web comic xkcd has a JSON interface. For example, a request to https://xkcd.com/571/info.0.json produces a detailed description of comic 571, one of many favorites. Download each URL (once!) and build an offline index. Write a tool xkcd that, using this index, prints the URL and transcript of each comic that matches a search term provided on the command line.
+- The JSON-based web service of the Open Movie Database lets you search https://omdbapi.com/ for a movie by name and download its poster image. Write a tool poster that downloads the poster image for the movie named on the command line.
