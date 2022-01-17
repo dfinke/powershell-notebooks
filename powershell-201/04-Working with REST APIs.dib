@@ -11,7 +11,7 @@ function Get-GitHubIssue {
     param($q)
     
     $IssuesURL = "https://api.github.com/search/issues?q=" + $q
-    (Invoke-RestMethod $IssuesURL).items | Select-Object number, state, @{name = 'login'; expression = { $_.user.login } }, title
+    (Invoke-RestMethod $IssuesURL).items | Select-Object number, state, @{name = 'login'; expression = { $_.user.login } }, title, @{n="createdAt";e={$_.created_at}}
 }
 
 #!pwsh
@@ -21,6 +21,29 @@ Get-GitHubIssue 'repo:powershell/powershell is:open json rest method'
 #!pwsh
 
 Get-GitHubIssue 'repo:powershell/powershell is:open json rest method' | ConvertTo-Csv
+
+#!markdown
+
+## Templates
+
+#!pwsh
+
+function daysAgo {
+    param([datetime]$date)
+
+    $today = Get-Date
+    ($today - $date).Days
+}
+
+foreach ($issue in Get-GitHubIssue 'repo:powershell/powershell is:open json rest method') { 
+    @"
+----------------------------------------
+Number: $($issue.Number)
+User:   $($issue.Login)
+Title:  $($issue.Title)
+Age: $(daysAgo $issue.createdAt) days
+"@
+}
 
 #!markdown
 
