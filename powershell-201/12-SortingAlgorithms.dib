@@ -1,0 +1,337 @@
+#!markdown
+
+# Sorting Algorithms
+
+https://github.com/ztgu/sorting_algorithms_py
+
+Basic sorting algorithms written in PowerShell. The code is simple and easy to understand.
+
+#!markdown
+
+# Bubble Sort
+
+#!pwsh
+
+class BubbleSort {
+    static Sort($targetList) {
+        $n = $targetList.Count
+
+        for ($i = 0; $i -lt $n; $i+=1) {
+            for ($j = 0; $j -lt $n-1; $j+=1) {
+                if($targetList[$j] -gt $targetList[$j+1]) {
+                    $temp = $targetList[$j+1]
+                    $targetList[$j+1]=$targetList[$j]
+                    $targetList[$j]=$temp
+                }
+            }
+        }
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | ForEach {Get-Random -Minimum 1 -Maximum 1000})
+[BubbleSort]::Sort($list)
+
+#!markdown
+
+# Bucket Sort
+
+#!pwsh
+
+class BucketSort {
+    static Sort($targetList) {
+
+        $max = $targetList[0]
+        $min = $targetList[0]
+
+        for ($i = 1; $i -lt $targetList.Count; $i++) {
+            if ($targetList[$i] -gt $max) { $max = $targetList[$i] }
+            if ($targetList[$i] -lt $min) { $min = $targetList[$i]}
+        }
+
+        $holder = New-Object object[][] ($max - $min + 1)
+
+        for ($i = 0; $i -lt $holder.Count; $i++) {
+            $holder[$i] = @()
+        }
+
+        for ($i = 0; $i -lt $targetList.Count; $i++) {
+            $holder[$targetList[$i] - $min]+=$targetList[$i]
+        }
+
+        $k = 0
+
+        for ($i = 0; $i -lt $holder.Count; $i++) {
+            if ($holder[$i].Count -gt 0) {
+                for ($j = 0; $j -lt $holder[$i].Count; $j++) {
+                    $targetList[$k] = $holder[$i][$j]
+                    $k++
+                }
+            }
+        }
+
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
+[BucketSort]::Sort($list)
+
+#!markdown
+
+# Counting Sort
+
+#!pwsh
+
+class CountingSort {
+    static Sort($targetList) {
+        $min = 0
+        $max = 0
+
+        for ($counter = 0; $counter -lt $targetList.Count; $counter++) {
+            if ($targetList[$counter] -lt $min) { $min = $targetList[$counter] }
+            if ($targetList[$counter] -gt $max) { $max = $targetList[$counter] }
+        }
+
+        $arrayBucket = New-Object int[] ($max - $min + 1)
+
+        for ($counter = 0; $counter -lt $targetList.Count; $counter++) {
+            $arrayBucket[$targetList[$counter]]++;
+        }
+
+        $lastPosition = 0
+        for ($counter = 0; $counter -lt $arrayBucket.Count ; $counter++) {
+            for ($innerCounter = 0; $innerCounter -lt $arrayBucket[$counter]; $innerCounter++) {
+                $targetList[$lastPosition++] = $counter
+            }
+        }
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
+[CountingSort]::Sort($list)
+
+#!markdown
+
+# Heap Sort
+
+#!pwsh
+
+class HeapSort {
+    static Sort($targetList) {
+        $heapSize = $targetList.Count
+
+        for ([int]$p = ($heapSize - 1) / 2; $p -ge 0; $p--) {
+            [HeapSort]::MaxHeapify($targetList, $heapSize, $p)
+        }
+
+        for ($i = $targetList.Count - 1; $i -gt 0; $i--) {
+            $temp = $targetList[$i]
+            $targetList[$i] = $targetList[0]
+            $targetList[0] = $temp
+
+            $heapSize--
+            [HeapSort]::MaxHeapify($targetList, $heapSize, 0)
+        }
+    }
+
+    static MaxHeapify($targetList, $heapSize, $index) {
+        $left = ($index + 1) * 2 - 1
+        $right = ($index + 1) * 2
+        $largest = 0
+
+        if ($left -lt $heapSize -and $targetList[$left] -gt $targetList[$index]) {
+            $largest = $left
+        }
+        else {
+            $largest = $index
+        }
+
+        if ($right -lt $heapSize -and $targetList[$right] -gt $targetList[$largest]) {
+            $largest = $right
+        }
+
+        if ($largest -ne $index) {
+            $temp = $targetList[$index]
+            $targetList[$index] = $targetList[$largest]
+            $targetList[$largest] = $temp
+
+            [HeapSort]::MaxHeapify($targetList, $heapSize, $largest)
+        }
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
+[HeapSort]::Sort($list)
+
+#!markdown
+
+# Insertion Sort
+
+#!pwsh
+
+class InsertionSort {
+    static Sort($targetList) {
+        $n = $targetList.count
+
+        for ($i = 0; $i -lt $n - 1; $i++) {
+            $j = $i + 1
+
+            while ($j -gt 0) {
+
+                if ($targetList[$j - 1] -gt $targetList[$j]) {
+                    $temp = $targetList[$j - 1]
+                    $targetList[$j - 1] = $targetList[$j]
+                    $targetList[$j] = $temp
+                }
+
+                $j--
+            }
+        }
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
+[InsertionSort]::Sort($list)
+
+#!markdown
+
+# Merge Sort
+
+#!pwsh
+
+class MergeSort {
+
+    static Merge($theArray, $tempArray, $leftPos, $rightPos, $rightEnd) {
+        $leftEnd = $rightPos - 1
+        $tmpPos = $leftPos
+        $numElements = $rightEnd - $leftPos + 1
+
+        while (($leftPos -le $leftEnd) -and ($rightPos -le $rightEnd)) {
+            if ($theArray[$leftPos].CompareTo($theArray[$rightPos]) -le 0) {
+                $tempArray[$tmpPos++] = $theArray[$leftPos++]
+            }
+            else {
+                $tempArray[$tmpPos++] = $theArray[$rightPos++]
+            }
+        }
+
+        while ($leftPos -le $leftEnd) { $tempArray[$tmpPos++] = $theArray[$leftPos++] }
+        while ($rightPos -le $rightEnd) { $tempArray[$tmpPos++] = $theArray[$rightPos++] }
+
+        for ($i = 0; $i -lt $numElements; $i++, $rightEnd--) {
+            $theArray[$rightEnd] = $tempArray[$rightEnd]
+        }
+    }
+
+    static Sort($theArray) {
+        $tempArray = New-Object Object[] $theArray.Count
+        [MergeSort]::Sort($theArray, $tempArray, 0, ($theArray.Count - 1))
+    }
+
+    static Sort($theArray, $tempArray, $left, $right) {
+        if ($left -lt $right) {
+
+            $center = [Math]::Floor(($left + $right) / 2)
+
+            [MergeSort]::Sort($theArray, $tempArray, $left, $center)
+            [MergeSort]::Sort($theArray, $tempArray, ($center + 1), $right)
+
+            [MergeSort]::Merge($theArray, $tempArray, $left, ($center + 1), $right)
+        }
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
+[MergeSort]::Sort($list)
+
+#!markdown
+
+# Quick Sort
+
+#!pwsh
+
+class QuickSort {
+    static Sort($targetList, $left, $right) {
+        $i=$left
+        $j=$right
+        $pivot = $targetList[($left+$right)/2]
+
+        while($i -le $j) {
+            while($targetList[$i] -lt $pivot -and $i -lt $right) {$i++}
+            while($targetList[$j] -gt $pivot -and $j -gt $left) {$j--}
+
+            if($i -le $j) {
+                $tmp = $targetList[$i]
+                $targetList[$i]=$targetList[$j]
+                $targetList[$j]=$tmp
+
+                $i++
+                $j--
+            }
+        }
+
+        if($left -lt $j) {[QuickSort]::Sort($targetList, $left, $j)}
+        if($i -lt $right) {[QuickSort]::Sort($targetList, $i, $right)}
+    }
+}
+
+#!pwsh
+
+$list = (1..1000 | ForEach{Get-Random -Minimum 1 -Maximum 1000})
+[QuickSort]::Sort($list, 0, $list.Count-1)
+
+#!markdown
+
+# All Sorts
+
+#!pwsh
+
+$list = for ($i = 1; $i -lt 1001; $i++) {
+    Get-Random -Minimum 1 -Maximum 1000
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Bubble"
+    TotalSeconds=(Measure-Command { [BubbleSort]::Sort(($list)) }).TotalSeconds
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Bucket"
+    TotalSeconds=(Measure-Command { [BucketSort]::Sort(($list)) }).TotalSeconds
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Counting"
+    TotalSeconds=(Measure-Command { [CountingSort]::Sort(($list)) }).TotalSeconds
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Heap"
+    TotalSeconds=(Measure-Command { [HeapSort]::Sort(($list)) }).TotalSeconds
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Insertion"
+    TotalSeconds=(Measure-Command { [InsertionSort]::Sort(($list)) }).TotalSeconds
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Merge"
+    TotalSeconds=(Measure-Command { [MergeSort]::Sort(($list)) }).TotalSeconds
+}
+
+[PSCustomObject]@{
+    TypeOfSort="Quick"
+    TotalSeconds=(Measure-Command { [QuickSort]::Sort($list, 0, $list.Count-1) }).TotalSeconds
+}
