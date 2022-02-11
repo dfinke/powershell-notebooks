@@ -6,6 +6,23 @@ https://github.com/ztgu/sorting_algorithms_py
 
 Basic sorting algorithms written in PowerShell. The code is simple and easy to understand.
 
+Average Complexities!
+---
+Check out the average Big-O complexities of the common sorting algorithms:
+
+- Quicksort:	O(n log(n))
+- Mergesort:	O(n log(n))
+- Heapsort:	O(n log(n))
+- Bubble Sort:	O(n^2)
+- Insertion Sort:	O(n^2)
+- Selection Sort:	O(n^2)
+
+#!pwsh
+
+$list = for ($i = 1; $i -lt 1001; $i++) {
+    Get-Random -Minimum 1 -Maximum 1000
+}
+
 #!markdown
 
 # Bubble Sort
@@ -30,7 +47,6 @@ class BubbleSort {
 
 #!pwsh
 
-$list = (1..1000 | ForEach {Get-Random -Minimum 1 -Maximum 1000})
 [BubbleSort]::Sort($list)
 
 #!markdown
@@ -76,7 +92,6 @@ class BucketSort {
 
 #!pwsh
 
-$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
 [BucketSort]::Sort($list)
 
 #!markdown
@@ -112,7 +127,6 @@ class CountingSort {
 
 #!pwsh
 
-$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
 [CountingSort]::Sort($list)
 
 #!markdown
@@ -167,7 +181,6 @@ class HeapSort {
 
 #!pwsh
 
-$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
 [HeapSort]::Sort($list)
 
 #!markdown
@@ -199,7 +212,6 @@ class InsertionSort {
 
 #!pwsh
 
-$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
 [InsertionSort]::Sort($list)
 
 #!markdown
@@ -252,7 +264,6 @@ class MergeSort {
 
 #!pwsh
 
-$list = (1..1000 | %{Get-Random -Minimum 1 -Maximum 1000})
 [MergeSort]::Sort($list)
 
 #!markdown
@@ -288,7 +299,6 @@ class QuickSort {
 
 #!pwsh
 
-$list = (1..1000 | ForEach{Get-Random -Minimum 1 -Maximum 1000})
 [QuickSort]::Sort($list, 0, $list.Count-1)
 
 #!markdown
@@ -297,41 +307,39 @@ $list = (1..1000 | ForEach{Get-Random -Minimum 1 -Maximum 1000})
 
 #!pwsh
 
-$list = for ($i = 1; $i -lt 1001; $i++) {
-    Get-Random -Minimum 1 -Maximum 1000
-}
+$(
+    [PSCustomObject]@{
+        TypeOfSort="Bubble"
+        TotalSeconds=(Measure-Command { [BubbleSort]::Sort(($list)) }).TotalSeconds
+    }
 
-[PSCustomObject]@{
-    TypeOfSort="Bubble"
-    TotalSeconds=(Measure-Command { [BubbleSort]::Sort(($list)) }).TotalSeconds
-}
+    [PSCustomObject]@{
+        TypeOfSort="Bucket"
+        TotalSeconds=(Measure-Command { [BucketSort]::Sort(($list)) }).TotalSeconds
+    }
 
-[PSCustomObject]@{
-    TypeOfSort="Bucket"
-    TotalSeconds=(Measure-Command { [BucketSort]::Sort(($list)) }).TotalSeconds
-}
+    [PSCustomObject]@{
+        TypeOfSort="Counting"
+        TotalSeconds=(Measure-Command { [CountingSort]::Sort(($list)) }).TotalSeconds
+    }
 
-[PSCustomObject]@{
-    TypeOfSort="Counting"
-    TotalSeconds=(Measure-Command { [CountingSort]::Sort(($list)) }).TotalSeconds
-}
+    [PSCustomObject]@{
+        TypeOfSort="Heap"
+        TotalSeconds=(Measure-Command { [HeapSort]::Sort(($list)) }).TotalSeconds
+    }
 
-[PSCustomObject]@{
-    TypeOfSort="Heap"
-    TotalSeconds=(Measure-Command { [HeapSort]::Sort(($list)) }).TotalSeconds
-}
+    [PSCustomObject]@{
+        TypeOfSort="Insertion"
+        TotalSeconds=(Measure-Command { [InsertionSort]::Sort(($list)) }).TotalSeconds
+    }
 
-[PSCustomObject]@{
-    TypeOfSort="Insertion"
-    TotalSeconds=(Measure-Command { [InsertionSort]::Sort(($list)) }).TotalSeconds
-}
+    [PSCustomObject]@{
+        TypeOfSort="Merge"
+        TotalSeconds=(Measure-Command { [MergeSort]::Sort(($list)) }).TotalSeconds
+    }
 
-[PSCustomObject]@{
-    TypeOfSort="Merge"
-    TotalSeconds=(Measure-Command { [MergeSort]::Sort(($list)) }).TotalSeconds
-}
-
-[PSCustomObject]@{
-    TypeOfSort="Quick"
-    TotalSeconds=(Measure-Command { [QuickSort]::Sort($list, 0, $list.Count-1) }).TotalSeconds
-}
+    [PSCustomObject]@{
+        TypeOfSort="Quick"
+        TotalSeconds=(Measure-Command { [QuickSort]::Sort($list, 0, $list.Count-1) }).TotalSeconds
+    }
+) | Sort TotalSeconds
