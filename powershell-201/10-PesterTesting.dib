@@ -1,0 +1,24 @@
+#!markdown
+
+# Pester Testing
+
+#!pwsh
+
+function test {
+    "Hello"
+}
+
+#!pwsh
+
+$sb = {
+    Describe 'Testing PowerShell in a .NET Interactive Notebook' {
+        It 'Test function should work' {
+            test | Should -BeExactly "Hello"
+        }
+    }
+}
+
+#!pwsh
+
+$container = New-PesterContainer -ScriptBlock $sb
+Invoke-Pester -Container $container

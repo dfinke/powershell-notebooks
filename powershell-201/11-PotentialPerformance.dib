@@ -1,0 +1,34 @@
+#!markdown
+
+# Potential Performance
+
+#!pwsh
+
+$list = 1..160
+
+#!pwsh
+
+(Measure-Command {
+    1..10000 | ForEach-Object {
+        $lookup = Get-Random -Minimum 0 -Maximum 200
+        $list | Where-Object { $_ -eq $lookup }
+    }
+}).TotalSeconds
+
+#!pwsh
+
+(Measure-Command {
+    1..10000 | ForEach-Object {
+        $lookup = Get-Random -Minimum 0 -Maximum 200
+        $list.indexof($lookup)
+    }
+}).TotalSeconds
+
+#!pwsh
+
+(Measure-Command {
+    1..10000 | ForEach-Object {
+        $lookup = Get-Random -Minimum 0 -Maximum 200
+        $list.Where({ $_ -eq $lookup })
+}
+}).TotalSeconds

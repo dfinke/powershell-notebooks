@@ -1,0 +1,66 @@
+#!markdown
+
+# TBD
+
+#!pwsh
+
+$g,$m = 'google.com', 'microsoft.com' |foreach-object {invoke-restmethod $_}
+
+$g.Length
+$m.Length
+
+#!markdown
+
+## Simplify with a ForEach
+
+#!pwsh
+
+function fetch {
+    param(
+        [parameter(ValueFromPipeline)]
+        $targetInput
+        )
+        
+        process {
+            Invoke-RestMethod $targetInput
+        }
+    }
+
+$g,$m=echo google.com microsoft.com | fetch
+
+$g.Length
+$m.Length
+
+#!markdown
+
+## Parallel
+
+#!pwsh
+
+$urls="google.com","microsoft.com","yahoo.com","facebook.com","twitter.com","linkedin.com","youtube.com"
+
+$result=$urls | foreach-object -Parallel {
+    Invoke-RestMethod $_
+}
+
+"Count: {0}" -f $result.Count
+$result | foreach {$_.Length}
+
+#!pwsh
+
+$urls="google.com","microsoft.com","yahoo.com","facebook.com","twitter.com","linkedin.com","youtube.com"
+
+$overallStart = Get-Date
+$urls | foreach-object -Parallel {
+    $start = Get-Date
+    $result=Invoke-RestMethod $_
+    $secs=(Get-Date).Subtract($start).TotalSeconds
+    
+    [PSCustomObject]@{
+        Seconds=$secs
+        Length=$result.Length
+        Url=$_
+    }
+}
+
+"`nElapsed: {0}" -f (Get-Date).Subtract($overallStart).TotalSeconds

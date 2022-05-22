@@ -1,0 +1,36 @@
+#!markdown
+
+# NameIT
+PowerShell module for randomly generating data
+
+#!pwsh
+
+Install-Module -Name NameIT
+
+#!pwsh
+
+Import-Module NameIT
+
+#!pwsh
+
+Invoke-Generate
+
+#!pwsh
+
+Invoke-Generate '???'
+
+#!pwsh
+
+Invoke-Generate '###'
+
+#!pwsh
+
+Invoke-Generate '???##' -Count 3 
+
+#!pwsh
+
+ig '[person]' -Count 3
+
+#!pwsh
+
+ig '[verb]_[noun]' -Count 3

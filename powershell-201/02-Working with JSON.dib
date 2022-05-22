@@ -1,0 +1,23 @@
+#!markdown
+
+# Working with JSON
+
+## Convert `from` JSON
+
+#!pwsh
+
+$data = ConvertFrom-Json @"
+[
+    {"OrderId":"1","Category":"Cosmetics","Sales":"744.01","Quantity":"07","Discount":"0.7"},
+    {"OrderId":"2","Category":"Grocery","Sales":"349.13","Quantity":"25","Discount":"0.3"},
+    {"OrderId":"3","Category":"Apparels","Sales":"535.11","Quantity":"88","Discount":"0.2"}
+]
+"@
+
+#!markdown
+
+## Convert `to` JSON
+
+#!pwsh
+
+$data | Format-Table
