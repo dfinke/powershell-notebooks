@@ -1,4 +1,4 @@
-# .NET Interactive Notebooks for PowerShell
+# Polyglot Notebooks for PowerShell
 
 Welcome to the home of Polyglot Notebooks for PowerShell!
 
