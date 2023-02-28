@@ -1,12 +1,10 @@
 # .NET Interactive Notebooks for PowerShell
 
-Welcome to the home of .NET interactive notebooks for PowerShell!
-
-***This is a derivative of the [.NET Interactive Notebooks for C#](https://github.com/dotnet/csharp-notebooks)***
+Welcome to the home of Polyglot Notebooks for PowerShell!
 
 ## How to Install
 
-1. Install the [.NET Interactive Notebooks](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
+1. Install the [Polyglot Notebook](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) extension.
 
 ## PowerShell 101
 Download or clone this repo and open the powershell-101 folder in VS Code to get started with the PowerShell 101 notebooks.
@@ -32,14 +30,6 @@ vscode://ms-dotnettools.dotnet-interactive-vscode/openNotebook?url=https://raw.g
 | 12 | Lists of Other Types            | [12 Notebook](https://tinyurl.com/12-ListsofOtherTypes)
 | 13 | Functions                       | [13 Notebook](https://tinyurl.com/13-Functions)
 | 14 | Hash Tables                     | [14 Notebook](https://tinyurl.com/14-Hashtables)
-
-## .NET Foundation
-
-.NET Interactive Notebooks for PowerShell is a [.NET Foundation](https://www.dotnetfoundation.org/projects) project.
-
-There are many .NET related projects on GitHub.
-
-- [Awesome PowerShell](https://github.com/janikvonrotz/awesome-powershell) - links to 100s of PowerShell resources, from the community.
 
 This project has adopted the code of conduct defined by the [Contributor Covenant](http://contributor-covenant.org/) to clarify expected behavior in our community. For more information, see the [.NET Foundation Code of Conduct](http://www.dotnetfoundation.org/code-of-conduct).
 
