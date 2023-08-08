@@ -1,0 +1,117 @@
+#!markdown
+
+# PowerShell Humanizer 
+
+Meets all your needs for manipulating and displaying strings, enums, dates, times, timespans, numbers and quantities
+
+#!pwsh
+
+Install-Module -Name PowerShellHumanizer
+
+#!pwsh
+
+Import-Module PowerShellHumanizer
+
+#!markdown
+
+# Features
+## Humanize String
+
+#!pwsh
+
+"PascalCaseInputStringIsTurnedIntoSentence".Humanize()
+"Underscored_input_string_is_turned_into_sentence".Humanize()
+"Underscored_input_String_is_turned_INTO_sentence".Humanize()
+
+#!pwsh
+
+# acronyms are left intact
+"HTML".Humanize()
+
+# any unbroken upper case string is treated as an acronym
+"HUMANIZER".Humanize() 
+"HUMANIZER".Transform("LowerCase")
+
+#!markdown
+
+## Transform String
+
+#!pwsh
+
+"Sentence casing".Transform("LowerCase")
+"Sentence casing".Transform("SentenceCase")
+"Sentence casing".Transform("TitleCase")
+"Sentence casing".Transform("UpperCase")
+
+#!markdown
+
+## Humanize DateTime
+
+#!pwsh
+
+(Get-Date).AddHours(-30).Humanize()
+(Get-Date).AddHours(-2).Humanize()
+(Get-Date).AddHours(30).Humanize()
+(Get-Date).AddHours(2).Humanize()
+(Get-Date).AddHours(1).Humanize()
+
+#!markdown
+
+## Ordinals
+
+#!pwsh
+
+$Collection = $(
+    [PSCustomObject]@{ SomeInt = 1; SomeString = "One" }
+    [PSCustomObject]@{ SomeInt = 2; SomeString = "Two" }
+    [PSCustomObject]@{ SomeInt = 3; SomeString = "Three" }
+)
+
+$Collection.SomeInt.Ordinalize()
+
+#!markdown
+
+# Inflector methods
+## Pluralize
+
+#!pwsh
+
+"woman" | ConvertTo-Plural
+"Man" | ConvertTo-Plural
+"string" | ConvertTo-Plural
+
+#!markdown
+
+## ToQuantity
+
+#!pwsh
+
+"process".ToQuantity(2)
+"day".ToQuantity(1)
+"day".ToQuantity(3)
+
+#!markdown
+
+## Strings
+
+#!markdown
+
+## Number to Words
+
+#!pwsh
+
+(1).ToWords()
+(10).ToWords()
+(11).ToWords()
+(122).ToWords()
+(3501).ToWords()
+
+#!markdown
+
+## Roman Numerals
+
+#!pwsh
+
+1..10 | ForEach {$_.ToRoman()}
+
+(2022).ToRoman()

@@ -1,0 +1,26 @@
+#!markdown
+
+# Sound Type System
+
+#!pwsh
+
+function Invoke-SpeakType {
+    param($x)
+
+    Add-Type -AssemblyName System.Speech
+    $speaker = New-Object System.Speech.Synthesis.SpeechSynthesizer
+    
+    $speaker.Speak('My value is' + $x + ', My base type is ' + $x.Gettype().Basetype + ', and my name is ' + $x.Gettype().Name)
+}
+
+#!pwsh
+
+Invoke-SpeakType 5
+
+#!pwsh
+
+Invoke-SpeakType 1, 2, 3
+
+#!pwsh
+
+Invoke-SpeakType 'Hello World'

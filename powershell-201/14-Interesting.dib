@@ -1,0 +1,7 @@
+#!markdown
+
+# Interesting
+
+#!pwsh
+
+2..8 |%{$d='1'*$_;$s=$d+' * '+$d;$s+' = '+(iex $s)}

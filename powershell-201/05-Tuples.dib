@@ -1,0 +1,103 @@
+#!markdown
+
+# Tuples
+
+Tuples provide an efficient way to store multiple values. Since they are static and cannot be modified, tuples generally require less memory than arrays. They are also flexible since they can store multiple data types.
+
+A tuple is like a list. Like a list, a tuple is a sequence of elements. However, once set, we cannot change a tuple.
+
+Plus, we can’t add or delete its elements
+
+#!pwsh
+
+function Get-CountryInfo {
+    param(
+        $Id,
+        $Country,
+        $Population,
+        $Percentage        
+    )
+
+    [System.Tuple]::Create($Id, $Country, $Population, $Percentage)    
+}
+
+#!pwsh
+
+$data = $(
+    Get-CountryInfo 1 "Germany" "83 Million" 2.84
+    Get-CountryInfo 2 "USA" "328 Million" 4.36
+    Get-CountryInfo 3 "France" "66 Million" 3.12
+    Get-CountryInfo 4 "Spain" "46 Million" 2.54
+)
+
+#!pwsh
+
+$data
+
+#!pwsh
+
+$data.Item2 | sort-object
+
+#!markdown
+
+## Immutable
+
+You cannot change the value of an element of a tuple.
+
+#!pwsh
+
+$data[0].Item2 = "Italy"
+
+#!markdown
+
+## PowerShell Objects in Tuples
+
+#!pwsh
+
+$a=[System.Tuple]::create([pscustomobject]@{id=1})
+
+#!pwsh
+
+$a
+
+#!pwsh
+
+$a.Item1
+
+#!pwsh
+
+$a.Item1.id
+
+#!markdown
+
+## Access via Index
+
+#!pwsh
+
+$data = [System.Tuple]::create((echo a e i o u),(1,2,3,4),(Get-ChildItem))
+
+#!pwsh
+
+$data
+
+#!pwsh
+
+$data[2]
+
+#!pwsh
+
+. ./ConvertTo-Tuple.ps1
+
+#!markdown
+
+Let’s create a tuple with ConvertTo-Tuple
+
+#!pwsh
+
+ConvertTo-Tuple 1.1
+ConvertTo-Tuple 1.1, 2.1
+ConvertTo-Tuple 'geeksforgeeks'
+ConvertTo-Tuple 'abc'
+ConvertTo-Tuple 11, 12, 13
+ConvertTo-Tuple (1..10)
+ConvertTo-Tuple @{a = 1 }
